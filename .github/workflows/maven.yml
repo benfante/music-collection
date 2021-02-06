@@ -24,4 +24,4 @@ jobs:
       with:
         java-version: 15
     - name: Build with Maven
-      run: mvn -B package --file ./music-collection-fx/pom.xml
+      run: mvn -B verify --file ./music-collection-fx/pom.xml
