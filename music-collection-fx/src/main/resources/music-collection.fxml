@@ -84,7 +84,7 @@
         </MenuBar>
         <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
             <children>
-                <Label layoutX="185.0" layoutY="171.0" text="Hello, Music Collection" textAlignment="CENTER">
+                <Label id="helloLabel" layoutX="185.0" layoutY="171.0" text="Hello, Music Collection" textAlignment="CENTER">
                     <font>
                         <Font size="24.0" />
                     </font>
