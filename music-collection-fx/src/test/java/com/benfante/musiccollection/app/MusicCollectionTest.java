@@ -11,6 +11,7 @@ import org.testfx.matcher.base.WindowMatchers;
 import org.testfx.matcher.control.LabeledMatchers;
 import static org.hamcrest.MatcherAssert.*;
 import static org.hamcrest.CoreMatchers.*;
+import org.junit.jupiter.api.Disabled;
 
 /**
  * Basic tests on the MusicCollection app.
@@ -18,6 +19,7 @@ import static org.hamcrest.CoreMatchers.*;
  * @author lucio
  */
 @ExtendWith(ApplicationExtension.class)
+@Disabled
 public class MusicCollectionTest {
     private Stage stage;
 
