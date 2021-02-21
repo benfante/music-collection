@@ -49,14 +49,14 @@ public class MusicCollection extends Application {
         launch(args);
     }
 
-    public static class StageReadyEvent extends ApplicationEvent {
-
-        public StageReadyEvent(Stage stage) {
-            super(stage);
-        }
-
-        public Stage getStage() {
-            return (Stage) this.getSource();
-        }
-    }
+//    public static class StageReadyEvent extends ApplicationEvent {
+//
+//        public StageReadyEvent(Stage stage) {
+//            super(stage);
+//        }
+//
+//        public Stage getStage() {
+//            return (Stage) this.getSource();
+//        }
+//    }
 }
