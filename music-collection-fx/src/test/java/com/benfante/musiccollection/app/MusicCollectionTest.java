@@ -1,48 +1,55 @@
 package com.benfante.musiccollection.app;
 
+import java.util.concurrent.TimeoutException;
+import javafx.application.Application;
 import javafx.stage.Stage;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.extension.ExtendWith;
 import org.testfx.api.FxAssert;
-import org.testfx.api.FxRobot;
-import org.testfx.framework.junit5.ApplicationExtension;
-import org.testfx.framework.junit5.Start;
 import org.testfx.matcher.base.WindowMatchers;
 import org.testfx.matcher.control.LabeledMatchers;
 import static org.hamcrest.MatcherAssert.*;
 import static org.hamcrest.CoreMatchers.*;
-import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.BeforeAll;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.testfx.api.FxToolkit;
 
 /**
  * Basic tests on the MusicCollection app.
  *
  * @author lucio
  */
-@ExtendWith(ApplicationExtension.class)
-@Disabled
+@SpringBootTest
 public class MusicCollectionTest {
-    private Stage stage;
-
-    @Start
-    private void start(Stage stage) throws Exception {
-        this.stage = stage;
-        MusicCollection app = new MusicCollection();
-        app.start(stage);
+    private static Application application;
+    private static Stage stage;
+    
+    @BeforeAll
+    private static void setup() throws TimeoutException {
+        FxToolkit.registerPrimaryStage();
+        application = new MusicCollection();
+        FxToolkit.setupApplication(() -> application);        
+        stage = FxToolkit.toolkitContext().getRegisteredStage();
     }
 
+    @AfterAll
+    private static void shutdown() throws TimeoutException {
+        FxToolkit.cleanupStages();
+    }
+    
     @Test
-    void testAppTitle(FxRobot robot) {
+    void testAppTitle() {
         assertThat(stage.getTitle(), is("Music Collection"));
     }
     
     @Test
-    void testAppIsShowed(FxRobot robot) {
+    void testAppIsShowed() {
         FxAssert.verifyThat(stage, WindowMatchers.isShowing());
     }
     
     // Probably you'll want to remove this test when you'll enhance the app
     @Test
-    void testAppLabel(FxRobot robot) {
+    void testAppLabel() {
         FxAssert.verifyThat("#helloLabel", LabeledMatchers.hasText("Hello, Music Collection"));
     }
 }

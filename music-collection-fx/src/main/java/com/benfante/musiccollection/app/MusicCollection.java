@@ -5,14 +5,9 @@
  */
 package com.benfante.musiccollection.app;
 
-import com.benfante.musiccollection.app.controller.MainController;
 import javafx.application.Application;
 import javafx.application.Platform;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.stage.Stage;
-import net.rgielen.fxweaver.core.FxWeaver;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.context.ApplicationEvent;
 import org.springframework.context.ConfigurableApplicationContext;
@@ -49,14 +44,14 @@ public class MusicCollection extends Application {
         launch(args);
     }
 
-//    public static class StageReadyEvent extends ApplicationEvent {
-//
-//        public StageReadyEvent(Stage stage) {
-//            super(stage);
-//        }
-//
-//        public Stage getStage() {
-//            return (Stage) this.getSource();
-//        }
-//    }
+    public static class StageReadyEvent extends ApplicationEvent {
+
+        public StageReadyEvent(Stage stage) {
+            super(stage);
+        }
+
+        public Stage getStage() {
+            return (Stage) this.getSource();
+        }
+    }
 }

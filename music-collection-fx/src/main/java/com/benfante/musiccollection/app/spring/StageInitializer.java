@@ -21,11 +21,11 @@ public class StageInitializer implements ApplicationListener<MusicCollection.Sta
     private final FxWeaver fxWeaver;
 
     public StageInitializer(@Value("${spring.application.ui.title}") String applicationTitle,
-                            FxWeaver fxWeaver) {
+            FxWeaver fxWeaver) {
         this.applicationTitle = applicationTitle;
         this.fxWeaver = fxWeaver;
     }
-    
+
     @Override
     public void onApplicationEvent(MusicCollection.StageReadyEvent e) {
         Stage stage = e.getStage();
@@ -34,5 +34,5 @@ public class StageInitializer implements ApplicationListener<MusicCollection.Sta
         stage.setScene(new Scene(root));
         stage.show();
     }
-    
+
 }
